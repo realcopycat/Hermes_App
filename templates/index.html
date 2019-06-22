@@ -1,33 +1,227 @@
 {% extends "layout.html" %}
 
 {% block content %}
-
-<div class="jumbotron">
-    <h1>Flask</h1>
-    <p class="lead">Flask is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://flask.pocoo.org/" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+<script src="/static/scripts/jquery-1.10.2.js"></script>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row" id="question">
+                <div class="col-md-8">
+                    <dl style="
+                    border-top-width: 60px;
+                    margin-top: 30px;
+                ">
+                        <dt>
+                            系统概要
+                        </dt>
+                        <dd>
+                            本系统能基于过往统计数据，给出新发案件的嫌疑人画像，并提供相应的侦察指导。
+                        </dd>
+                        <dd>
+                            <em>目前可针对电动车盗窃案进行筛查。</em>
+                        </dd>
+                        <dt>
+                            使用说明
+                        </dt>
+                        <dd style="
+                        padding-top: 10px;
+                        color: #0043c2c7;
+                    ">
+                            请在右侧第一个搜索框里输入对于案情的简要描述。
+                        </dd>
+                        <dd style="
+                        color: #5d9c77;
+                    ">
+                            请在右侧第二个搜索框内输入案件发生的具体地点。
+                        </dd>
+                        <dt>
+                            案件流程指引
+                        </dt>
+                        <dd>
+                            在检索结束后，您将看到一个流程检索框。输入您目前掌握的证据与信息，系统给出接下来的建议侦察方向。
+                        </dd>
+                        <dt>
+                            声明
+                        </dt>
+                        <dd>
+                            检索结果仅供参考。
+                        </dd>
+                    </dl>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" style="
+                    border-bottom-width: 1px;
+                    margin-bottom: 20px;
+                    margin-top: 30px;
+                ">
+                        <h5 class="card-header" style="
+                        background-color: #0043c2c7;
+                    ">
+                            案情摘要
+                        </h5>
+                        <div class="card-body">
+                            <p class="card-text">
+                                <input id="caseDes1" class="form-control mr-sm-2" type="text" placeholder="尽量对作案方式做出描述~" aria-label="Search">
+                            </p>
+                        </div>
+                        
+                    </div>
+                    <div class="card">
+                        <h5 class="card-header" style="
+                        background-color: #5d9c77;
+                    ">
+                            案发地点
+                        </h5>
+                        <div class="card-body">
+                            <p class="card-text">
+                                <input id="caseDes2" class="form-control mr-sm-2" type="text" placeholder="写得越详细越好~" aria-label="Search">
+                            </p>
+                        </div>
+                        
+                    </div>
+                    <center>
+                        <a href="#" class="btn btn-primary" style="
+                        background-color: coral;
+                        margin-top: 20px;
+                        border-color: coral;
+                        width: 186px;
+                    " onclick="firstsearch()">开始查找</a>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="firstresult">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-6" style="
+                margin-top: 40px;
+            ">
+					<div class="tabbable" id="tabs-754925">
+						<ul class="nav nav-tabs">
+							<li class="nav-item">
+								<a class="nav-link active show" href="#tab1" data-toggle="tab">参考案件1</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#tab2" data-toggle="tab">参考案件2</a>
+                            </li>
+                            <li class="nav-item">
+								<a class="nav-link" href="#tab3" data-toggle="tab">参考案件3</a>
+                            </li>
+                            <li class="nav-item">
+								<a class="nav-link" href="#tab4" data-toggle="tab">参考案件4</a>
+							</li>
+						</ul>
+						<div class="tab-content">
+							<div class="tab-pane active" id="tab1">
+								
+							</div>
+							<div class="tab-pane" id="tab2">
+								
+                            </div>
+                            <div class="tab-pane" id="tab3">
+								
+                            </div>
+                            <div class="tab-pane" id="tab4">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<ul id="criminalData" style="
+                    border-top-width: 40px;
+                    margin-top: 40px;
+                ">
+						
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            Flask gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://flask.pocoo.org/docs/">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>The Python Package Index is a repository of software for the Python programming language.</p>
-        <p><a class="btn btn-default" href="https://pypi.python.org/pypi">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Microsoft Azure</h2>
-        <p>You can easily publish to Microsoft Azure using Visual Studio. Find out how you can host your application using a free trial today.</p>
-        <p><a class="btn btn-default" href="http://azure.microsoft.com">Learn more &raquo;</a></p>
-    </div>
-</div>
+<script type="text/javascript">
+    $("#firstresult").hide()
+
+    function firstsearch () {
+        if ( checkNone() == false ) {
+            return null
+        }
+        //var relationData = {caseDes: $("caseDes1").val(),caseLoc: $("caseDes2").val()}
+        $.getJSON('/firstsearch', 
+            {caseDes: $("#caseDes1").val(),caseLoc: $("#caseDes2").val()}
+    , function (json) {
+            $("#question").hide();
+            $("#firstresult").show();
+            criminalDataBulid(json.criminalData);
+            caseDataBuild(json.caseData);
+
+        });
+    };
+
+    function caseDataBuild (jsonData) {
+        var count = 1;
+        for (var index in jsonData) {
+            if (count == 5) {
+                return null
+            };
+            var tmp_p = document.createElement("p");
+            tmp_p.textContent = jsonData[index].caseBrife;
+            var locateID = "tab" + String(count);
+            count = count + 1;
+            console.log(locateID)
+            document.getElementById(locateID)
+                .appendChild(tmp_p)
+        };
+    };
+
+    function criminalDataBulid (jsonData) {
+        var manRatio = document.createElement("li");
+        manRatio.textContent = "嫌疑人为男性的概率为：" + String(jsonData.ratioMen) +  "% ±5%";
+        manRatio.setAttribute("class", "list-item");
+        document.getElementById("criminalData")
+            .appendChild(manRatio);
+
+        var womanRatio = document.createElement("li");
+        womanRatio.textContent = "嫌疑人为女性的概率为：" + String(jsonData.ratioWomen) + "% ±5%";
+        womanRatio.setAttribute("class", "list-item");
+        document.getElementById("criminalData")
+            .appendChild(womanRatio);
+
+        var tmpli = document.createElement("li");
+        tmpli.textContent = "嫌疑人可能的最大年龄：" + String(jsonData.maxage);
+        tmpli.setAttribute("class", "list-item");
+        document.getElementById("criminalData")
+            .appendChild(tmpli);
+
+        var tmpli = document.createElement("li");
+        tmpli.textContent = "嫌疑人可能的最小年龄：" + String(jsonData.minage);
+        tmpli.setAttribute("class", "list-item");
+        document.getElementById("criminalData")
+            .appendChild(tmpli);
+        
+        var tmpli = document.createElement("li");
+        tmpli.textContent = "嫌疑人可能来自以下地区：" + String(jsonData.birthplace);
+        tmpli.setAttribute("class", "list-item");
+        document.getElementById("criminalData")
+            .appendChild(tmpli);
+        
+        var tmpli = document.createElement("li");
+        tmpli.textContent = "嫌疑人接受的教育水平预计是：" + String(jsonData.edu);
+        tmpli.setAttribute("class", "list-item");
+        document.getElementById("criminalData")
+            .appendChild(tmpli);
+    };
+
+    function checkNone () {
+        if (( $("caseDes1").val() == "" )||( $("caseDes2").val() == "" )){
+            alert('请补全案件信息再进行搜索！');
+            return false;
+        }
+        return true;
+    };
+</script>
 
 {% endblock %}

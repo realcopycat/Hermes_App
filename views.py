@@ -3,11 +3,12 @@ Routes and views for the flask application.
 """
 
 from datetime import datetime
-from flask import render_template
+from flask import render_template, request, jsonify
 from work1demo import app
+from work1demo.requestProcess.firstRequest import req1Processor
 
 @app.route('/')
-@app.route('/home')
+@app.route('/home', methods=['get','post'])
 def home():
     """Renders the home page."""
     return render_template(
@@ -35,3 +36,15 @@ def about():
         year=datetime.now().year,
         message='Your application description page.'
     )
+
+@app.route('/firstsearch', methods=['get','post'])
+def firstsearch():
+    """Render Answer"""
+    #print(request.args.get('caseDes'))
+    answerDealer = req1Processor(request.args.get('caseDes'), request.args.get('caseLoc'))
+    answer = answerDealer.main()
+    return jsonify(answer)
+
+    
+    
+
